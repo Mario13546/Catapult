@@ -10,12 +10,8 @@ public class DriverControlled extends OpMode {
     //Nothing yet...
 
     /* Instance Creation */
-    HardwareRobot robot       = HardwareRobot.getInstance();
+	//Create instances of all your applicable classes and pass them their parameters
     ElapsedTime   runtime     = new ElapsedTime();   // Starts counting the time
-    Controls      controls    = new Controls(this);  // A class for the controling functions
-    Grabber       grabber     = new Grabber();       // A class for the grabber related functions
-    Spinner       spin        = new Spinner();       // A class for the spinner related functions
-    Drive         drive       = new Drive();         // A class for drive functions
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -56,11 +52,8 @@ public class DriverControlled extends OpMode {
         // Wheel control
         wheelControl();
 
-        //Grabber control
-        grabberControl();
-
-        //Spinner Control
-        spinnerControl();
+        // Catpult control
+        launcherControl();
 
         //Displays runtime
         telemetry.addData("Status", "Run Time: " + runtime.toString());
@@ -79,41 +72,21 @@ public class DriverControlled extends OpMode {
      */
     private void wheelControl() {
         // Gamepad 1 inputs
-        double leftStickY  = controls.leftDrivePower();
-        double rightStickY = controls.rightDrivePower();
+        //Get the inputs from controls
 
         //Tank Drive Method
-        drive.tankDrive(leftStickY, rightStickY);
+        //Call the drive function from drive
     }
 
     /**
      * A method to control the grabber and related functions
      */
-    private void grabberControl() {
+    private void launcherControl() {
         //Gamepad 2 functions
-        double                tiltPower       = controls.tiltPower();
-        double                extendPower     = controls.extendPower();
-        Controls.GrabberState grabberPosition = controls.getGrabberPosition();
+        //Get the inputs from controls
 
-        //Makes the grabber arm tilt
-        grabber.tiltArm(tiltPower);
-
-        //Makes the grabber arm extend
-        grabber.extendArm(extendPower);
-
-        //Makes the grabber, well grab...
-        grabber.setGrabberPosition(grabberPosition);
-    }
-
-    /**
-     * A method to control the spinner wheel
-     */
-    private void spinnerControl() {
-        //Gamepad 2 Functions
-        double spinPower = controls.spinnerPower();
-
-        //Passes the power that allows the spinner to spin
-        spin.spinControl(spinPower);
+    	//Makes the launcher fire!
+    	//Call the lanuch function from launcher
     }
 
 }
