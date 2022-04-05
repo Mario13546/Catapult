@@ -5,17 +5,27 @@ public class Grabber {
     //Nothing yet...
 
     //Object Creation
-    //Createa a HardwareRobot object
+    HardwareRobot robot;
 
     /**
      * Constructor
      */
     public Grabber() {
         //Instance Creation
-        //Create an instance of HardwareRobot
+        robot = HardwareRobot.getInstance();
     }
     
-    //Put methods here
+    /**
+     * 
+     */
+    public void shoot(boolean fire) {
+        if () {
+            //
+        }
+        if (fire == true) {
+            robot.launcher.setEncoder();
+        }
+    }
 }
 
 //End of the Manipulator class
