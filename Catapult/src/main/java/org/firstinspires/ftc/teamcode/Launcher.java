@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-public class Grabber {
+public class Launcher {
     /* Class Variables */
     //Nothing yet...
 
@@ -10,7 +10,7 @@ public class Grabber {
     /**
      * Constructor
      */
-    public Grabber() {
+    public Launcher() {
         //Instance Creation
         //Create an instance of HardwareRobot
     }
@@ -18,4 +18,4 @@ public class Grabber {
     //Put methods here
 }
 
-//End of the Manipulator class
+//End of the Launcher class
