@@ -1,16 +1,17 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.ElapsedTime;
+//import the OpMode library
+//import the TeleOp library
+//import the ElapsedTime library
 
-@TeleOp(name="Driver Controlled", group="Iterative Opmode")
+//FIll in the "" with the name you would like
+@TeleOp(name="", group="Iterative Opmode")
 public class DriverControlled extends OpMode {
     /* Class variables */
     //Nothing yet...
 
     /* Instance Creation */
-	//Create instances of all your applicable classes and pass them their parameters
+    //Create instances of all other classes in the directory (HardwareRobot needs to created differently)
     ElapsedTime   runtime     = new ElapsedTime();   // Starts counting the time
 
     /*
