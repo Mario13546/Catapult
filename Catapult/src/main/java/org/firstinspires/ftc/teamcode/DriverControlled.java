@@ -10,8 +10,11 @@ public class DriverControlled extends OpMode {
     //Nothing yet...
 
     /* Instance Creation */
-	//Create instances of all your applicable classes and pass them their parameters
+    HardwareRobot robot       = HardwareRobot.getInstance();
     ElapsedTime   runtime     = new ElapsedTime();   // Starts counting the time
+    Controls      controls    = new Controls(this);  // A class for the controling functions
+    Launcher      launcher    = new Launcher();      // A class for the launcher related functions
+    Drive         drive       = new Drive();         // A class for drive functions
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -72,10 +75,11 @@ public class DriverControlled extends OpMode {
      */
     private void wheelControl() {
         // Gamepad 1 inputs
-        //Get the inputs from controls
+        double leftStickY  = controls.leftDrivePower();
+        double rightStickY = controls.rightDrivePower();
 
         //Tank Drive Method
-        //Call the drive function from drive
+        drive.tankDrive(leftStickY, rightStickY);
     }
 
     /**
@@ -83,10 +87,10 @@ public class DriverControlled extends OpMode {
      */
     private void launcherControl() {
         //Gamepad 2 functions
-        //Get the inputs from controls
+        boolean fire = controls.launchBall();
 
     	//Makes the launcher fire!
-    	//Call the lanuch function from launcher
+    	launcher.shoot(fire);
     }
 
 }
