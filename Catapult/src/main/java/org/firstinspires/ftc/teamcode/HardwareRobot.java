@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 public class HardwareRobot {
     /**
@@ -20,7 +19,9 @@ public class HardwareRobot {
 
     /* Object Creation */
     //DcMotors motors
-    //Create public DcMotor objects
+    public DcMotor leftDrive;
+    public DcMotor rightDrive;
+    public DcMotor launcher;
 
     //Other members
     HardwareMap hwMap;
@@ -47,20 +48,35 @@ public class HardwareRobot {
         hwMap = ahwMap;
 
         // Initialize the Drive motors
+        leftDrive  = hwMap.get(DcMotor.class, "left_drive");
+        rightDrive = hwMap.get(DcMotor.class, "right_drive");
 
         // Initialize the Luncher motor
+        launcher   = hwMap.get(DcMotor.class, "launcher");
 
         // Set the motor directions
+        leftDrive.setDirection (DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        launcher.setDirection  (DcMotor.Direction.FORWARD);
 
         // Make the drive motors run without encoders
+        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        
+        // Make the launcher motor run with encoders
+        launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Set all motors to zero power
+        leftDrive.setPower(0.00);
+        rightDrive.setPower(0.00);
+        launcher.setPower(0.00);
     }
     
     /**
      * Returns the encoder value from the launcher motor
      */
-    //Create a method to return the position from the lanucher motor
-}
+    public double launcherPosition() {
+        return launcher.getCurrentPosition();
+    }
 
 //End of the HardwareRobot class
